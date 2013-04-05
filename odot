@@ -4,13 +4,15 @@ class Todo
   def initialize(*argv)
     @argv = argv
     @todofile = "todo.do"
-    begin
-      send(@argv[0])
-    rescue TypeError
-      list
-    rescue NoMethodError
-      puts "Command #{@argv[0]} not found.\n\n"
-      help
+    
+    if @argv[0] == '-a'
+        add
+    elsif @argv[0] == '-d'
+        done
+    elsif @argv[0] == '-h'
+        help
+    else
+        list
     end
   end
 
