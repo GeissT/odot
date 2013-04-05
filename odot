@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 class Todo
   def initialize(*argv)
     @argv = argv
