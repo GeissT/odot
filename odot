@@ -19,12 +19,12 @@ class Todo
   # Lists help information
   def help
     puts <<-help
-Commands
---------
-   add [task name] - Add a new task
-   list - Lists all tasks
-   done [task id] - Complete a task
-   help - Prints out this information
+    Commands
+    --------
+    add [task name] - Add a new task
+    list - Lists all tasks
+    done [task id] - Complete a task
+    help - Prints out this information
     help
   end
 
@@ -35,7 +35,7 @@ Commands
       exit
     end
 
-    # Append task to file
+    # Get contents of file, so we can append later.
     contents = File.read(@todofile)
 
     File.open(@todofile, 'w') do |f|
@@ -54,7 +54,7 @@ Commands
     i = 0
     contents.each_line do |todo|
       i += 1
-      puts "##{i} - #{todo}"
+      puts "#{i}) #{todo}"
     end
   end
 
