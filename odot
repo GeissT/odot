@@ -1,10 +1,18 @@
 #!/usr/bin/env ruby
 
+require "fileutils"
+
 class Todo
   def initialize(*argv)
     @argv = argv
     @todofile = "todo.do"
-    
+
+    unless File.exists? @todofile
+      puts "TODO file not found! Creating..."
+      FileUtils.touch(@todofile)
+      puts "Created!"
+    end
+
     if @argv[0] == '-a'
         add
     elsif @argv[0] == '-d'
