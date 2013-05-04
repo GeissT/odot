@@ -55,7 +55,11 @@ class Todo
   # List all tasks
   def list
     file = File.read(@todofile)
-    puts "No tasks!" if File.zero? @todofile
+
+    if File.zero? @todofile
+      puts "No tasks!"
+      exit
+    end
 
     # Read content
     contents = File.read(@todofile)
