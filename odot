@@ -14,13 +14,15 @@ class Todo
     end
 
     if @argv[0] == '-a'
-        add
+      add
     elsif @argv[0] == '-d'
-        done
+      done
     elsif @argv[0] == '-h'
-        help
+      help
+    elsif @argv[0] == '-l'
+      list
     else
-        list
+      list
     end
   end
 
@@ -29,10 +31,10 @@ class Todo
     puts <<-help
     Commands
     --------
-    add [task name] - Add a new task
-    list - Lists all tasks
-    done [task id] - Complete a task
-    help - Prints out this information
+    -a [task name] - Add a new task
+    -l - Lists all tasks
+    -d [task id] - Complete a task
+    -h - Prints out this information
     help
   end
 
